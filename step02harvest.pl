@@ -1,15 +1,16 @@
 #!perl
 
 use Getopt::Std;
-getopts "g:";
+getopts "g:d:";
 
-$genome    = $opt_g;
-
-if (!defined $opt_g ) {
+$genome      = $opt_g;
+$EVM_loc     = $opt_d;
+if ((!defined $opt_g) || (!defined $opt_d)) {
     die "************************************************************************
-    Usage: perl step02harvest.pl -g genome.fasta 
+    Usage: perl step02harvest.pl -g genome.fasta -d EVM location
       -h : help and usage.
       -g : genome file
+      -d : location of EVidenceModeler, eg. ~/software/EVidenceModeler
 ************************************************************************\n";
 }else{
   print "************************************************************************\n";
@@ -59,12 +60,14 @@ close IN;
 close OUT;
 
 ###below need install EVidenceModeler
-$cmd = "perl gff3_file_to_proteins.pl GFF/contig.all.gff FASTA/genome.fasta CDS > FASTA/cds.fasta";
+$cmd = "perl $EVM_loc/EvmUtils/gff3_file_to_proteins.pl GFF/contig.all.gff FASTA/genome.fasta CDS > FASTA/cds.fasta";
 system($cmd);
-$cmd = "perl gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta prot > FASTA/protein.fasta";
+$cmd = "perl $EVM_loc/EvmUtils/gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta prot > FASTA/protein.fasta";
 system($cmd);
-$cmd = "perl gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta cDNA > FASTA/cDNA.fasta";
+$cmd = "perl $EVM_loc/EvmUtils/gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta cDNA > FASTA/cDNA.fasta";
 system($cmd);
-$cmd = "perl gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta gene > FASTA/gene.fasta";
+$cmd = "perl $EVM_loc/EvmUtils/gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta gene > FASTA/gene.fasta";
 system($cmd);
+
+
 
