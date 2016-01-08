@@ -14,7 +14,7 @@ if (!defined $opt_g ) {
 }else{
   print "************************************************************************\n";
   print "Version 1.0\n";
-  print "Copyright to Tanger\n";
+  print "Copyright to Tanger, tanger.zhang\@gmail.com\n";
   print "RUNNING...\n";
   print "************************************************************************\n";
         }
