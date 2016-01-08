@@ -59,12 +59,12 @@ close IN;
 close OUT;
 
 ###below need install EVidenceModeler
-$cmd = "perl bin/gff3_file_to_proteins.pl GFF/contig.all.gff FASTA/genome.fasta CDS > FASTA/cds.fasta";
+$cmd = "perl gff3_file_to_proteins.pl GFF/contig.all.gff FASTA/genome.fasta CDS > FASTA/cds.fasta";
 system($cmd);
-$cmd = "perl bin/gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta prot > FASTA/protein.fasta";
+$cmd = "perl gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta prot > FASTA/protein.fasta";
 system($cmd);
-$cmd = "perl bin/gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta cDNA > FASTA/cDNA.fasta";
+$cmd = "perl gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta cDNA > FASTA/cDNA.fasta";
 system($cmd);
-$cmd = "perl bin/gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta gene > FASTA/gene.fasta";
+$cmd = "perl gff3_file_to_proteins.pl GFF/contig.all.gff  FASTA/genome.fasta gene > FASTA/gene.fasta";
 system($cmd);
 
