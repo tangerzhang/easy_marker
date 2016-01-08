@@ -1,0 +1,21 @@
+# easy_marker
+Running maker annotation seems a time-consuming job. To make the gene annotation easy and fast, I developed the easy_maker pipeline
+
+###1. prepare your config files and data
+  a. EST or assembled RNA-seq data
+  b. homologous proteins, several species
+  c. your genome, which you want to annotation
+  d. maker -CTL files, and modify them according to your needs
+  e. special note: modify "genome=contig.fasta" in maker_opts.ctl, do not need your genome file.
+  f. special note: use absolute path when config EST and homologous protein files in maker_opts.ctl
+
+###2. split big genome into N fragments
+  perl step01maker_split.pl -n 4 -g your.genome.fasta
+
+###3. run each part
+  After the big genome were splited into N parts, you need to run each part separately.
+  Go to each part directory, and submit job.pbs if you are using PBS system; otherwise, run run.sh script in a stand-alone linux server.
+
+###4. harvest your results
+  perl step02 harvest.pl -g your.genome.fasta
+
