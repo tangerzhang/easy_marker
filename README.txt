@@ -1,6 +1,12 @@
 # easy_marker
 Running maker annotation seems a time-consuming job. To make the gene annotation easy and fast, I developed the easy_maker pipeline
-
+###0. install
+  a. install EVM
+  http://evidencemodeler.github.io/
+  b. install easy_maker
+  git clone https://github.com/tangerzhang/easy_marker.git
+  cp easy_maker/*.pl /your/working/dir/
+  
 ###1. prepare your config files and data
   a. EST or assembled RNA-seq data
   b. homologous proteins, several species
@@ -18,4 +24,8 @@ Running maker annotation seems a time-consuming job. To make the gene annotation
 
 ###4. harvest your results
   perl step02 harvest.pl -g your.genome.fasta
+
+###5. understand results
+  FASTA/ directory contains all sequences, including cDNA, cds, gene, protein and genome
+  GFF/contig.all.gff is the combined gff3 file annotated by maker
 
