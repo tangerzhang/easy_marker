@@ -24,8 +24,9 @@ Running maker annotation seems a time-consuming job. To make the gene annotation
 
 ###4. harvest your results
   perl step02 harvest.pl -g your.genome.fasta
-
+  perl rename_maker.pl lable  ###if you want rename genes' name
 ###5. understand results
   FASTA/ directory contains all sequences, including cDNA, cds, gene, protein and genome
   GFF/contig.all.gff is the combined gff3 file annotated by maker
+  result/ contains gff and sequence files after rename
 
