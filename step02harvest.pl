@@ -20,6 +20,16 @@ if ((!defined $opt_g) || (!defined $opt_d)) {
   print "************************************************************************\n";
         }
 
+my $sum_err;
+while(my $part_dir = glob "part_*"){
+	my $log_file = $part_dir."/contig.maker.output/contig_master_datastore_index.log";
+	my $err_info = `grep \'FAILED\' $log_file`;
+#	print "$part_dir failed\n" if(($err_info =~ /FAILED/) or ($err_info =~ /No such file or directory/));
+	$sum_err .= $part_dir." failed\n" if(($err_info =~ /FAILED/) or ($err_info =~ /No such file or directory/));
+	}
+
+print "$sum_err\n";
+die "Please re-run FAILED parts !!!\n" if($sum_err =~ /failed/);
 
 system("rm -rf GFF");
 mkdir GFF;
